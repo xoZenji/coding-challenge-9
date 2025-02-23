@@ -58,11 +58,23 @@ class Company {
 // Task 4: Implemented Payroll System
     calculateTotalPayroll() {
         return this.employees.reduce((total, employee) => total + employee.calculateAnnualSalary(), 0);
-    };
-};
+    }; 
+
+    // Task 5: Implemented Promotion System
+    promoteToManager(employee, teamSize) {
+        const index = this.employees.indexOf(employee);
+        if (index !== -1) {
+            const manager = new Manager(employee.name, employee.id, employee.department, employee.salary, teamSize);
+            this.employees[index] = manager;
+        };
+    }; // Created a method that promotes the employee "Alice" to manager
+}
 
 const company = new Company("TechCorp");
 company.addEmployee(emp1); // Expected output: "Employee: Alice Johnson, ID: 101, Department: Sales, Salary: $5000"
 company.addEmployee(mgr1); // Expected output: "Manager: John Smith, ID: 201, Department: IT, Salary: $8000, Team Size: 5"
 company.listEmployees();
 console.log(company.calculateTotalPayroll()); // Expected output: 165600 (assuming emp1 and mgr1 salaries)
+company.promoteToManager(emp1, 3);
+company.listEmployees();
+// Prints all information to the console.
