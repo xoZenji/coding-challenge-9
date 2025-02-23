@@ -55,12 +55,14 @@ class Company {
     listEmployees() {
         this.employees.forEach(employee => console.log(employee.getDetails()));
     };
+// Task 4: Implemented Payroll System
+    calculateTotalPayroll() {
+        return this.employees.reduce((total, employee) => total + employee.calculateAnnualSalary(), 0);
+    };
 };
 
 const company = new Company("TechCorp");
-company.addEmployee(emp1);
-company.addEmployee(mgr1);
+company.addEmployee(emp1); // Expected output: "Employee: Alice Johnson, ID: 101, Department: Sales, Salary: $5000"
+company.addEmployee(mgr1); // Expected output: "Manager: John Smith, ID: 201, Department: IT, Salary: $8000, Team Size: 5"
 company.listEmployees();
-// Expected output:
-// "Employee: Alice Johnson, ID: 101, Department: Sales, Salary: $5000"
-// "Manager: John Smith, ID: 201, Department: IT, Salary: $8000, Team Size: 5"
+console.log(company.calculateTotalPayroll()); // Expected output: 165600 (assuming emp1 and mgr1 salaries)
