@@ -54,11 +54,12 @@ class Company {
 
     listEmployees() {
         this.employees.forEach(employee => console.log(employee.getDetails()));
-    };
+    }; // Created Company class for the storage of employee information.
+
 // Task 4: Implemented Payroll System
     calculateTotalPayroll() {
         return this.employees.reduce((total, employee) => total + employee.calculateAnnualSalary(), 0);
-    }; 
+    }; // Calculates the total payroll amounts.
 
     // Task 5: Implemented Promotion System
     promoteToManager(employee, teamSize) {
